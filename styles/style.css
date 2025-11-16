@@ -6,23 +6,25 @@
   font-size: var(--font-size);
   font-weight: 400;
   line-height: 23.4px;
-  background-image: var(--backgroung-image);
+  background-color: var(--background-color);
+  background-image: var(--background-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-/*Шапка*/
+/* Шапка */
 
 .header {
-  min-block-size: 100vh;
+  min-block-size: 668px;
+  block-size: 100vh;
   padding: 20px;
   display: grid;
   position: relative;
   grid-template-rows: 1fr min-content 1fr;
 }
 
-/*Кнопки навигации*/
+/* Кнопки навигации */
 
 .header__theme-menu-list {
   display: flex;
@@ -36,9 +38,10 @@
   text-align: center;
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 
-/*Действия на кнопки*/
+/* Действия на кнопки */
 
 .header__theme-menu-button_active {
   pointer-events: none;
@@ -54,17 +57,17 @@
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid rgba(255, 0, 112, 0.4);
+  border: 1px solid var(--border-hover-color);
   cursor: pointer;
 }
 
-/*РЕС*/
+/* РЕС */
 
 .decorative__element {
   position: absolute;
   top: 0;
   right: 0;
-  content: "";
+  content: '';
   display: flex;
   align-items: center;
   gap: 10px;
@@ -77,22 +80,22 @@
 
 .decorative__element::after {
   display: block;
-  content: "";
+  content: '';
   inline-size: 9px;
   block-size: 9px;
   border-radius: 50%;
   background-color: var(--accent-color);
   fill: var(--accent-color);
-  filter: drop-shadow(0px 0px 4px var(--accent-color));
+  box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
-/* Стили углов*/
+/* Стили углов */
 
 .frame::before {
   position: absolute;
   top: 0;
   right: 0;
-  content: "";
+  content: '';
   border-top: 1px solid var(--btn-color);
   border-right: 1px solid var(--btn-color);
   inline-size: 25px;
@@ -104,7 +107,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  content: "";
+  content: '';
   border-bottom: 1px solid var(--btn-color);
   border-left: 1px solid var(--btn-color);
   inline-size: 25px;
@@ -112,7 +115,7 @@
   margin: 20px;
 }
 
-/*Заголовок шапки*/
+/* Заголовок шапки */
 
 .header__title {
   margin-left: -20px;
@@ -133,12 +136,11 @@
 
 .header__text {
   max-inline-size: 491px;
-  max-block-size: 71px;
   justify-self: end;
   align-self: center;
 }
 
-/*Дизайн заголовков всех секций*/
+/* Дизайн заголовков всех секций */
 
 .question__section-title {
   color: var(--btn-color);
@@ -147,14 +149,24 @@
   font-size: var(--font-size);
 }
 
-/*Дизайн текста всех секций*/
 
-.question__section-answer-text {
+/* Дизайн секций */
+
+.question__article-title {
+  margin-block-end: 10px;
+}
+
+.question__article-text {
   font-size: var(--font-size);
   color: var(--text-color);
 }
 
-/*Ссылки*/
+.question__article-subtitle {
+  font-weight: 400;
+  margin-block-end: 10px;
+}
+
+/* Ссылки */
 
 .question__section-answer-link {
   text-decoration: none;
@@ -173,70 +185,55 @@
   border: 1px solid var(--text-color);
 }
 
-/*Первая секция с вопросами*/
+/* Секция о том, почему сложно сосредоточиться */
 
-.question__section__one {
+.question__section__focus {
   display: grid;
   grid-template-columns: 34% 66%;
   padding-block-start: 60px;
   margin: 0 20px;
 }
 
-.question__section-answer {
+.question__section-answer-focus {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
-.question__section-answer p:first-of-type {
-  padding-block-end: 10px;
-}
+/* Секция о том, что мешает концентрироваться */
 
-/*Вторая секция с вопросами*/
-
-.question__section-two {
+.question__section__distraction {
   padding-block-start: 80px;
   padding-block-end: 80px;
   margin: 0 20px;
 }
 
-.question__section-answer-two-container {
+.question__section-answer-distraction {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   padding-block-start: 20px;
 }
-.question__section-title-two {
+
+.question__section-title-distraction {
   max-inline-size: 315px;
 }
 
-.question__section-answer-title-two {
-  margin-block-end: 10px;
-}
+/* Секция с советами по улучшению концентрации */
 
-/*Третья секция с вопросами*/
-
-.question__section__fhree {
+.question__section__tips {
   display: grid;
   grid-template-columns: 34% 66%;
   padding-block-end: 80px;
   margin: 0 20px;
 }
 
-.question__section-answer-subtitle {
-  font-weight: 400;
-}
-
-.question__section-answer-fhree {
+.question__section-answer-tips {
   display: grid;
   gap: 20px;
 }
 
-.question__section-answer-text-fhree {
-  padding-block-start: 10px;
-}
-
-/*Секция с картинками*/
+/* Секция с картинками */
 
 .question__section__image {
   padding-block-end: 60px;
@@ -282,10 +279,11 @@
   grid-column: 2 / 4;
 }
 
-/*Подвал*/
+/* Подвал */
 
 .footer {
-  min-block-size: 100vh;
+  min-block-size: 668px;
+  block-size: 100vh;
   padding: 20px;
   position: relative;
   display: flex;
@@ -294,14 +292,14 @@
 }
 
 .footer__title {
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--footer-shadow-color);
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   color: var(--title-color);
   font-weight: 700;
   line-height: 82.5%;
 }
 
-/*Медиа запрос под 768px*/
+/* Медиа запрос под 768px */
 
 @media (max-width: 768px) {
   .header__theme-menu {
@@ -318,31 +316,30 @@
 
   .header__text {
     max-inline-size: 364px;
-    max-block-size: 117px;
   }
 
   .header__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .question__section__one {
+  .question__section__focus {
     grid-template-columns: 33% 67%;
     gap: 20px;
     padding-inline-end: 20px;
   }
 
-  .question__section-answer-two-container {
+  .question__section-answer-distraction {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding-block-start: 20px;
   }
 
-  .question__section-title-two {
+  .question__section-title-distraction {
     max-inline-size: 236px;
   }
 
-  .question__section__fhree {
+  .question__section__tips {
     display: grid;
     grid-template-columns: 35% 65%;
     padding-block-end: 80px;
@@ -355,7 +352,7 @@
   }
 }
 
-/*Медиа запрос под 375px*/
+/* Медиа запрос под 375px */
 
 @media (max-width: 560px) {
   .header {
@@ -369,10 +366,9 @@
 
   .header__text {
     max-inline-size: 355px;
-    max-block-size: 117px;
   }
 
-  .question__section__one {
+  .question__section__focus {
     margin: 0px 10px;
     padding: 40px 0 0 0;
     display: flex;
@@ -380,23 +376,23 @@
     gap: 20px;
   }
 
-  .question__section-two {
+  .question__section__distraction {
     margin: 0 10px;
     padding-block-start: 50px;
     padding-inline-end: 0;
     padding-block-end: 50px;
   }
 
-  .question__section-title-two {
+  .question__section-title-distraction {
     min-inline-size: 355px;
   }
 
-  .question__section-answer-two-container {
+  .question__section-answer-distraction {
     display: flex;
     flex-direction: column;
   }
 
-  .question__section__fhree {
+  .question__section__tips {
     margin: 0 10px;
     display: flex;
     flex-direction: column;
