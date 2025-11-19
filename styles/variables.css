@@ -10,5 +10,8 @@
   --font: "IBM Plex mono";
   --font-size: 18px;
   --btn-color: #ff0070;
-  --backgroung-image: url(../images/cover-image-dark.png);
+  --background-image: url(../images/cover-image-dark.png);
+  --background-color: #00012b;
+  --border-hover-color: rgba(255, 0, 112, 0.4);
+  --footer-shadow-color: #ff0070;
 }
